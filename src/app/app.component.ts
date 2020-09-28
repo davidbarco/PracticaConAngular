@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {configuracion} from "./models/configuracion"
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'aprendiendo-angular';
+  public title:string;
+  public mostrarVideojuegos: boolean = true;
+  public descripcion: string;
+  public config;
+
+
+  constructor() {
+     this.config= configuracion;
+     this.title = configuracion.titulo;
+     this.descripcion= configuracion.descripcion;
+  }
+
+
+  ocultarVideojuegos(value){
+    this.mostrarVideojuegos = value;
+  }
+  
+
 }

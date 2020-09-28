@@ -1,0 +1,78 @@
+<h1>{{titulo}}</h1>
+
+<p>Añadir marca</p>
+<input type="text" [(ngModel)]="miMarca" (keyup.enter)="mostrarPalabra()">
+<button (click)="getMarca()">Mostrar Marca</button>
+
+<button (click)="addMarca()">Añadir Marca</button>
+
+<p>{{miMarca}}</p>
+
+<p>Compra las zapatillas de las mejores marcas</p>
+
+
+
+
+    <ul>
+        
+        <li *ngFor="let marcas of marcas; let indice=index ">
+            
+            
+            {{indice + " " + marcas}}
+            <button (click)="DeleteMarca(indice)">Borrar marca</button>
+            
+            
+        </li>
+
+    </ul>
+
+
+
+
+<p>Las Deportivas que tenemos disponibles son:</p>
+<ul>
+    <li *ngFor="let zapatos of zapatillas">
+        <!-- con el ngClass puedo poner clases y hacer condicionales, ejemplo en linea 39 -->
+       <span [ngStyle]="{
+           'text-decoration': !zapatos.stock ? 'line-through':'none'
+       }"> {{zapatos.nombre}} -<strong [class.altoPrecio]="zapatos.precio >= 80"
+           [ngClass]="{
+               'fondoRojo': zapatos.precio >100,
+               'subrayado': zapatos.marca == 'pumita'
+           }"
+         >{{zapatos.precio}} $
+
+       </strong></span>
+    
+       <span class="oferta" *ngIf="zapatos.precio > 80"> En Oferta! </span> 
+    
+    
+    </li>
+    
+</ul>
+
+
+<!-- directiva ngSwitch -->
+
+<p>El color de la mayoria de nuestras zapatillas es:</p>
+
+<input type="text" [(ngModel)]="color">
+
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'yellow'">
+        el color predominante es el <span [ngStyle]="{'background': color }"> amarillo.</span>
+    </li>
+    
+    <li *ngSwitchCase="'red'">
+        el color predominante es el <span  [ngStyle]="{'background': color }">rojo.</span> 
+    </li>
+
+    <li *ngSwitchCase="'blue'">
+        el color predominante es el <span  [ngStyle]="{'background': color }">azul.</span> 
+    </li>
+
+    <li *ngSwitchCase="'orange'">
+        el color predominante es el <span  [ngStyle]="{'background': color }"> naranja.</span>
+    </li>
+
+</ul>

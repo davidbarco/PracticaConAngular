@@ -1,0 +1,53 @@
+<h2>contacto</h2>
+
+<!-- convertir a formulario de angular con el # -->
+
+<!-- para validar en angular el formulario utilizo el . required -->
+
+<form #formContacto="ngForm" (ngSubmit)="onSubmit(formContacto)">
+
+<label for="nombre">Nombre</label>  <br>
+<input type="text" name="nombre" id="" #nombre="ngModel" [(ngModel)]="usuario.nombre" required> <br>
+
+<!-- hago la validacion -->
+<span *ngIf="nombre.touched && !nombre.valid">
+ Ingresa nombre
+</span>
+<br>
+<br>
+
+<label for="apellidos">apellidos</label> <br>
+<input type="text" name="apellidos" id=""  #apellidos="ngModel" [(ngModel)]="usuario.apellidos" required> <br>
+
+<span *ngIf="apellidos.touched && !apellidos.valid">
+    Ingresa tu apellido
+   </span>
+
+   <br>
+   <br>
+
+
+
+<label for="email">email</label> <br>
+<input type="email" name="email" id="" #email="ngModel" [(ngModel)]="usuario.email" required> <br>
+
+<span *ngIf="email.touched && !email.valid">
+    Ingresa tu email
+   </span>
+<br>
+<br>
+
+
+<label for="mensaje">mensaje</label> <br>
+<textarea name="mensaje" id="" cols="30" rows="10"  #mensaje="ngModel" [(ngModel)]="usuario.mensaje" required></textarea> <br>
+
+<span *ngIf="mensaje.touched && !mensaje.valid">
+    Ingresa tu mensaje
+   </span>
+   <br>
+   <br>
+
+
+<input type="submit" value="Enviar" [disabled]="!formContacto.form.valid">
+
+</form>

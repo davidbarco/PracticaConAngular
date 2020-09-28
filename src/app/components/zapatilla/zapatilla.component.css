@@ -1,0 +1,14 @@
+.oferta{
+    color: green;
+    background: hotpink;
+}
+.altoPrecio{
+    color: gray;
+    font-size: 18px;
+}
+.fondoRojo{
+    background: red;
+}
+.subrayado{
+    text-decoration: underline;
+}
